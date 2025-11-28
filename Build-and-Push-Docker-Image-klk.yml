@@ -6,13 +6,13 @@ on:
       - main
       - master
     paths:
-      - 'api/**'
+      - 'DOCKER_USUARIOS/**'
       - '.github/workflows/docker-push.yml'
   workflow_dispatch: # Permite ejecutar manualmente
 
 env:
   DOCKER_IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/ejemplo-api
-  DOCKER_TAG: v1.0.0
+  DOCKER_TAG: latest
 
 jobs:
   build-and-push:
@@ -34,8 +34,8 @@ jobs:
       - name: Construir y subir imagen Docker
         uses: docker/build-push-action@v5
         with:
-          context: ./api 
-          file: ./api/Dockerfile
+          context: ./DOCKER_USUARIOS 
+          file: ./DOCKER_USUARIOS/Dockerfile
           push: true
           tags: ${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_TAG }}
           cache-from: type=registry,ref=${{ env.DOCKER_IMAGE_NAME }}:buildcache
