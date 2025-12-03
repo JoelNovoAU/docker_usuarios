@@ -8,7 +8,7 @@ on:
     paths:
       - 'docker_usuarios/**'
       - '.github/workflows/docker-push.yml'
-  workflow_dispatch: # Permite ejecutar manualmente
+  workflow_dispatch: 
 
 env:
   DOCKER_IMAGE_NAME: joelnovo16/ejemplo-api
