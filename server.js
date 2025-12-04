@@ -23,7 +23,7 @@ app.get("/users", async (req, res) => {
     res.status(500).send(err.message);
   }
 });
-
+//buen cambio prueba
 app.get("/groups", async (req, res) => {
   try {
     const result = await pool.query("SELECT * FROM groups");
