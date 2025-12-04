@@ -47,3 +47,8 @@ jobs:
           echo "  - Imagen: ${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_TAG }}"
           echo "  - Docker Hub: https://hub.docker.com/r/joelnovo16/ejemplo-api"
 
+      - name: Notificar a Telegram
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+            -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
+            -d text="✅ Imagen Docker ${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_TAG }} subida exitosamente a Docker Hub"
