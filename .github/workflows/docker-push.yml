@@ -6,7 +6,7 @@ on:
       - main
       - master
     paths:
-      - 'docker_usuarios/**'
+      - 'DOCKER_USUARIOS/**'
       - '.github/workflows/docker-push.yml'
   workflow_dispatch: 
 
